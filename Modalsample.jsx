@@ -19,6 +19,7 @@ function Modalsample({ abc }) {
                 ref={modalRef}
                 className="dialog_label"
                 role="dialog"
+                aria-modal="true"
                 onKeyDown={(e) => {
                     if (e.key === "Escape") {
                         abc();
