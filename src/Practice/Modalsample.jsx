@@ -4,7 +4,7 @@ import Content from "./Content";
 import Button from "./Button";
 import { useRef } from "react";
 import { useEffect } from "react";
-import { click } from "@testing-library/user-event/dist/click";
+
 
 function Modalsample({ onclick }) {
     const modalRef = useRef(null);
@@ -52,7 +52,6 @@ function Modalsample({ onclick }) {
                 }}
             >
                 <Button arialabel="close" buttonName="X" onclick={onclick} />
-              
                 <Header  id="modal" head="My Modal" />
                 <Content main="This is my modal content" />
                 <Button buttonName="submit" onclick={onclick} />
