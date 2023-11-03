@@ -25,7 +25,7 @@ function Modalsample({ onclick }) {
                 aria-labelledby="modal"
                 onKeyDown={(e) => {
                     if (e.key === "Escape") {
-                        click();
+                        onclick();
                     }
                     //  modal's <div> element.
                     const modal = modalRef.current;
