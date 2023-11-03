@@ -4,8 +4,9 @@ import Content from "./Content";
 import Button from "./Button";
 import { useRef } from "react";
 import { useEffect } from "react";
+import { click } from "@testing-library/user-event/dist/click";
 
-function Modalsample({ abc }) {
+function Modalsample({ onclick }) {
     const modalRef = useRef(null);
 
     useEffect(() => {
@@ -24,7 +25,7 @@ function Modalsample({ abc }) {
                 aria-labelledby="modal"
                 onKeyDown={(e) => {
                     if (e.key === "Escape") {
-                        abc();
+                        click();
                     }
                     //  modal's <div> element.
                     const modal = modalRef.current;
@@ -50,11 +51,12 @@ function Modalsample({ abc }) {
                     }
                 }}
             >
-                <Button arialabel="close" buttonName="X" abc={abc} />
+                <Button arialabel="close" buttonName="X" onclick={onclick} />
+              
                 <Header  id="modal" head="My Modal" />
                 <Content main="This is my modal content" />
-                <Button buttonName="submit" abc={abc} />
-                <Button buttonName="cancel" abc={abc} />
+                <Button buttonName="submit" onclick={onclick} />
+                <Button buttonName="cancel" onclick={onclick} />
             </div>
         </>
     );
