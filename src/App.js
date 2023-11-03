@@ -5,7 +5,8 @@ import BtnDisplay from "./Components/BtnDisplay";
 import Parent from "./Practice/parent";
 import Button from "./Practice/Button"
 import Modalsample from "./Practice/Modalsample";
-import Header from "./Practice/Header";
+//import Header from "./Practice/Header";
+import Form from "./Components/Form";
 
 
 function App() {
@@ -17,13 +18,9 @@ function App() {
   }
   return (
     <div>
-
-      {/* <BtnDisplay text="open modal" onClick={click} />
-      {show || < Modal xyz="My Modal" onClick={click} />} */}
-      <Parent />
-      <BtnDisplay />
       <Button buttonName="Open" abc={click} />
       {show || <Modalsample abc={click} />}
+  
     </div >);
 }
 
