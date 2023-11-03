@@ -1,9 +1,9 @@
 import React from "react";
 
-function Button({ abc, buttonName }) {
+function Button({ abc,arialabel, buttonName }) {
     return (
         <div>
-            <button onClick={abc}>{buttonName}</button>
+            <button aria-label={arialabel} onClick={abc}>{buttonName}</button>
         </div>
     );
 }

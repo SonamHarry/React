@@ -19,6 +19,7 @@ function Modalsample({ abc }) {
                 ref={modalRef}
                 className="dialog_label"
                 role="dialog"
+            
                 aria-modal="true"
                 aria-labelledby="modal"
                 onKeyDown={(e) => {
@@ -49,8 +50,8 @@ function Modalsample({ abc }) {
                     }
                 }}
             >
-                <Button buttonName="X" abc={abc} />
-                <Header id="modal" head="My Modal" />
+                <Button arialabel="close" buttonName="X" abc={abc} />
+                <Header  id="modal" head="My Modal" />
                 <Content main="This is my modal content" />
                 <Button buttonName="submit" abc={abc} />
                 <Button buttonName="cancel" abc={abc} />

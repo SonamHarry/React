@@ -10,7 +10,7 @@ import Form from "./Components/Form";
 
 
 function App() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   function click() {
 
     setShow(!show);
