@@ -2,14 +2,15 @@ import React from "react";
 import Header from "./Header";
 
 const BtnDisplay = () => {
-    let show=true;
+    let show = true;
 const click = () => {
-  show=(!show);
-  console.log(!show);}
+  show  ? false :true;
+ }
     return (
         <div>
-      { show ?<p>sonam</p>
+      { show === true? <p>simran</p>
       : <p>radha</p>}
+       {console.log(!show)}
             <Header />
             <button onClick={click}></button>
         </div>
