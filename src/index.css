@@ -31,14 +31,14 @@ code {
   min-height: 30vh;
   text-align: center;
   width: 500px;
-  height: 200px;
+  height: 450px;
   align-items: center;
   backdrop-filter: blur(5px);
   position: fixed;
   left: 500px;
   right: 500px;
   bottom: 500px;
-  top: 200px;
+  top: 50px;
 }
 
 

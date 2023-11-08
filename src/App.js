@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 // import BtnDisplay from "./Components/BtnDisplay";
 // import Modal from "./Components/Modal";
@@ -12,18 +12,23 @@ import { useRef } from "react";
 
 function App() {
   const mainRef = useRef();
-  useEffect(() => {
-    const mainFocus = mainRef.current.querySelectorAll("button");
-    mainFocus[0].focus();
-});
+//   useEffect(() => {
+//     const mainFocus = mainRef.current.querySelectorAll("button");
+//     mainFocus[0].focus();
+// });
+// let show=true;
+// let setShow=!show;
   const [show, setShow] = useState(true);
 const click = () => {
   setShow(!show);
- 
+  // console.log(!setShow);
+  // !setShow;
+  const mainFocus = mainRef.current.querySelectorAll("button");
+  mainFocus[0].focus();
   }
   return (
     <div ref={mainRef}>
-      <Button buttonName="Open" onclick={click} />
+      <Button buttonName="Add Personal Information" onclick={click} />
       {show || <Modalsample onclick={click} />}
    </div >);
 }
