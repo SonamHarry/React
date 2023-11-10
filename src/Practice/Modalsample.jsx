@@ -137,22 +137,22 @@ function Modalsample({ onclick }) {
                 <form>
                     <label id="fname">First Name:<br />
                         <input type="text" value={firstName} onChange={onSubmit} onBlur={errorMsg} aria-labelledby="fname" placeholder="Enter your first name" autoComplete="given-name" required /><br />
-                        <span hidden={firstNameValidation} style={{ color: 'red' }}>Please Enter Your Firstname</span><br />
+                        <span  hidden={firstNameValidation} style={{ color: '#b81106' }}>Please Enter Your Firstname</span><br />
                     </label>
                     <label id="lname">Last Name:<br />
                         <input type="text" value={lastname} onChange={onSubmit1} onBlur={errorMsg1}  aria-labelledby="lname" placeholder="Enter your last name" autoComplete="additional-name" required="P" /><br />
-                        <span hidden={lastNameValidation} style={{ color: 'red' }}>Please Enter Your Lastname</span><br />
+                        <span hidden={lastNameValidation} style={{ color: '#b81106' }}>Please Enter Your Lastname</span><br />
                     </label>
                     <label id="email">Email Address:<br />
                         <input type="text" value={email} onChange={onSubmit2}  onBlur={errorMsg2} aria-labelledby="email" placeholder="Enter your email address" autoComplete="email" required /><br />
-                        <span hidden={emailValidation} style={{ color: 'red' }}>Please Enter Your Email Address</span><br />
+                        <span hidden={emailValidation} style={{ color: '#b81106' }}>Please Enter Your Email Address</span><br />
                     </label>
                     <label id="phone">Phone Number:<br />
                         <input type="text" value={phone} onChange={onSubmit3}  onBlur={errorMsg3}  aria-labelledby="phone" placeholder="Enter your phone number" autoComplete="tel" required /><br />
-                        <span hidden={phoneValidation} style={{ color: 'red' }}>Please Enter Your phone number</span><br />
+                        <span hidden={phoneValidation} style={{ color: '#b81106' }}>Please Enter Your phone number</span><br />
                     </label>
                 </form>
-                <button type="submit" onClick={handleSubmit}>Sumbit</button>
+                <button type="submit" onClick={handleSubmit}>Submit</button>
                 <Button buttonName="cancel" onclick={onclick} />
             </div>
         </>
