@@ -8,6 +8,10 @@ import { useEffect } from "react";
 
 function Modalsample({ onclick }) {
     const modalRef = useRef(null);
+    const inputFirstName = useRef(null);
+    const inputLastName = useRef(null);
+    const inputEmail = useRef(null);
+    const inputPhone = useRef(null);
     const [firstName, setfirstName] = useState('');
     const [firstNameValidation, setFirstNameValidation] = useState(true);
     const [lastname, setLastName] = useState('');
@@ -58,9 +62,26 @@ function Modalsample({ onclick }) {
         } else {
             setphoneValidation(true);
         }
-        if (firstName, lastname, email, phone !== "") {
-           onclick();
-        } 
+
+        if (firstName === "") {
+            inputFirstName.current.focus();
+        }
+        else if (lastname === "") {
+            inputLastName.current.focus();
+        }
+        else if (email === "") {
+            inputEmail.current.focus();
+        }
+        else if (phone === "") {
+            inputPhone.current.focus();
+        }
+
+        else {
+            if (firstName, lastname, email, phone !== "") {
+                onclick();
+            }
+        }
+
     }
 
     // onblur event used for form validation    
@@ -79,7 +100,7 @@ function Modalsample({ onclick }) {
         }
     }
     const errorMsg2 = () => {
-  if (email === "") {
+        if (email === "") {
             setEmailValidation(false);
         } else {
             setEmailValidation(true);
@@ -111,12 +132,8 @@ function Modalsample({ onclick }) {
                     const modalItems = modal.querySelectorAll("button");
                     const firstModalItem = modalItems[0];
                     const lastModalItem = modalItems[modalItems.length - 1];
-
-                    //  the key that triggered the event is the "Tab" key (e.key === "Tab").
                     if (e.key === "Tab") {
-                        // it checks if the "Shift" key is also being held down
                         if (e.shiftKey) {
-                            // This is used to determine if the first modal item is the currently focused element.
                             if (document.activeElement === firstModalItem) {
                                 lastModalItem.focus();
                                 e.preventDefault();
@@ -136,19 +153,19 @@ function Modalsample({ onclick }) {
 
                 <form>
                     <label id="fname">First Name:<br />
-                        <input type="text" value={firstName} onChange={onSubmit} onBlur={errorMsg} aria-labelledby="fname" placeholder="Enter your first name" autoComplete="given-name" required /><br />
-                        <span  hidden={firstNameValidation} style={{ color: '#b81106' }}>Please Enter Your Firstname</span><br />
+                        <input type="text" value={firstName} ref={inputFirstName} onChange={onSubmit} onBlur={errorMsg} aria-labelledby="fname" placeholder="Enter your first name" autoComplete="given-name" required /><br />
+                        <span hidden={firstNameValidation} style={{ color: '#b81106' }}>Please Enter Your Firstname</span><br />
                     </label>
                     <label id="lname">Last Name:<br />
-                        <input type="text" value={lastname} onChange={onSubmit1} onBlur={errorMsg1}  aria-labelledby="lname" placeholder="Enter your last name" autoComplete="additional-name" required="P" /><br />
+                        <input type="text" value={lastname} ref={inputLastName} onChange={onSubmit1} onBlur={errorMsg1} aria-labelledby="lname" placeholder="Enter your last name" autoComplete="additional-name" required="P" /><br />
                         <span hidden={lastNameValidation} style={{ color: '#b81106' }}>Please Enter Your Lastname</span><br />
                     </label>
                     <label id="email">Email Address:<br />
-                        <input type="text" value={email} onChange={onSubmit2}  onBlur={errorMsg2} aria-labelledby="email" placeholder="Enter your email address" autoComplete="email" required /><br />
+                        <input type="text" value={email} ref={inputEmail} onChange={onSubmit2} onBlur={errorMsg2} aria-labelledby="email" placeholder="Enter your email address" autoComplete="email" required /><br />
                         <span hidden={emailValidation} style={{ color: '#b81106' }}>Please Enter Your Email Address</span><br />
                     </label>
                     <label id="phone">Phone Number:<br />
-                        <input type="text" value={phone} onChange={onSubmit3}  onBlur={errorMsg3}  aria-labelledby="phone" placeholder="Enter your phone number" autoComplete="tel" required /><br />
+                        <input type="text" value={phone} ref={inputPhone} onChange={onSubmit3} onBlur={errorMsg3} aria-labelledby="phone" placeholder="Enter your phone number" autoComplete="tel" required /><br />
                         <span hidden={phoneValidation} style={{ color: '#b81106' }}>Please Enter Your phone number</span><br />
                     </label>
                 </form>
