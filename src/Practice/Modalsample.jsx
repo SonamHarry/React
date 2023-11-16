@@ -62,7 +62,6 @@ function Modalsample({ onclick }) {
         } else {
             setphoneValidation(true);
         }
-
         if (firstName === "") {
             inputFirstName.current.focus();
         }
@@ -80,7 +79,6 @@ function Modalsample({ onclick }) {
                 onclick();
             }
         }
-
     }
 
     // onblur event used for form validation    
