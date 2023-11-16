@@ -11,7 +11,7 @@ function Modalsample({ onclick }) {
     const inputFirstName = useRef(null);
     const inputLastName = useRef(null);
     const inputEmail = useRef(null);
-    const inputPhone = useRef(null);
+    const inputPhone = useRef(null); 
     const [firstName, setfirstName] = useState('');
     const [firstNameValidation, setFirstNameValidation] = useState(true);
     const [lastname, setLastName] = useState('');
@@ -75,7 +75,6 @@ function Modalsample({ onclick }) {
         else if (phone === "") {
             inputPhone.current.focus();
         }
-
         else {
             if (firstName, lastname, email, phone !== "") {
                 onclick();
