@@ -168,6 +168,7 @@ function Modalsample({ onclick }) {
                         <span hidden={phoneValidation} style={{ color: '#b81106' }}>Please Enter Your phone number</span><br />
                     </label>
                 </form>
+            
                 <button type="submit" onClick={handleSubmit}>Submit</button>
                 <Button buttonName="cancel" onclick={onclick} />
             </div>
