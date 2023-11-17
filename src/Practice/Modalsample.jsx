@@ -20,6 +20,8 @@ function Modalsample({ onclick }) {
     const [emailValidation, setEmailValidation] = useState(true);
     const [phone, setPhone] = useState('');
     const [phoneValidation, setphoneValidation] = useState(true);
+    const emailPattern =/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    const phoneNumber =(/^\d{1,10}$/);
 
     useEffect(() => {
         const interactiveElement = modalRef.current.querySelectorAll("button");
@@ -51,13 +53,13 @@ function Modalsample({ onclick }) {
         } else {
             setlastNameValidation(true);
         }
-        if (email === "") {
+        if ( email === "" || !emailPattern.test(email)) {
             setEmailValidation(false);
             console.log("hii");
         } else {
             setEmailValidation(true);
         }
-        if (phone === "") {
+        if (phone === "" || !phoneNumber.test(phone)) {
             setphoneValidation(false);
         } else {
             setphoneValidation(true);
@@ -68,14 +70,14 @@ function Modalsample({ onclick }) {
         else if (lastname === "") {
             inputLastName.current.focus();
         }
-        else if (email === "") {
+        else if (email === "" || !emailPattern.test(email)) {
             inputEmail.current.focus();
         }
-        else if (phone === "") {
+        else if (phone === "" || !phoneNumber.test(phone)) {
             inputPhone.current.focus();
         }
         else {
-            if (firstName, lastname, email, phone !== "") {
+            if (firstName, lastname, email, phone !== "" && emailPattern.test(email)) {
                 onclick();
             }
         }
@@ -158,11 +160,11 @@ function Modalsample({ onclick }) {
                         <span hidden={lastNameValidation} style={{ color: '#b81106' }}>Please Enter Your Lastname</span><br />
                     </label>
                     <label id="email">Email Address:<br />
-                        <input type="text" value={email} ref={inputEmail} onChange={onSubmit2} onBlur={errorMsg2} aria-labelledby="email" placeholder="Enter your email address" autoComplete="email" required /><br />
+                        <input type="email" value={email} ref={inputEmail} onChange={onSubmit2} onBlur={errorMsg2} aria-labelledby="email" placeholder="Enter your email address" autoComplete="email"  required /><br />
                         <span hidden={emailValidation} style={{ color: '#b81106' }}>Please Enter Your Email Address</span><br />
                     </label>
                     <label id="phone">Phone Number:<br />
-                        <input type="text" value={phone} ref={inputPhone} onChange={onSubmit3} onBlur={errorMsg3} aria-labelledby="phone" placeholder="Enter your phone number" autoComplete="tel" required /><br />
+                        <input type="tel" value={phone} ref={inputPhone} onChange={onSubmit3} onBlur={errorMsg3} aria-labelledby="phone" placeholder="Enter your phone number" autoComplete="tel" required /><br />
                         <span hidden={phoneValidation} style={{ color: '#b81106' }}>Please Enter Your phone number</span><br />
                     </label>
                 </form>
