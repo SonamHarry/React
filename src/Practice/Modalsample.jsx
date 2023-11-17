@@ -55,7 +55,6 @@ function Modalsample({ onclick }) {
         }
         if ( email === "" || !emailPattern.test(email)) {
             setEmailValidation(false);
-            console.log("hii");
         } else {
             setEmailValidation(true);
         }
