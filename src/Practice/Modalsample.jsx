@@ -18,7 +18,7 @@ function Modalsample({ onclick }) {
     const [lastNameValidation, setlastNameValidation] = useState(true);
     const [email, setEmail] = useState('');
     const [emailValidation, setEmailValidation] = useState(true);
-const [emailError, setEmailError] = useState(true);
+    const [emailError, setEmailError] = useState(true);
     const [phone, setPhone] = useState('');
     const [phoneValidation, setphoneValidation] = useState(true);
     const [phoneError, setPhoneError] = useState(true);
@@ -59,17 +59,22 @@ const [emailError, setEmailError] = useState(true);
             setEmailValidation(false);
         } else {
             setEmailValidation(true);
-        }
+        
         if (!emailPattern.test(email)) {
             setEmailError(false);
         } else {
             setEmailError(true);
-        }
-        if (phone === "" || !phoneNumber.test(phone)) {
+        }}
+        if (phone === "") {
             setphoneValidation(false);
         } else {
             setphoneValidation(true);
-        }
+        
+        if ( !phoneNumber.test(phone)) {
+            setPhoneError(false);
+        } else {
+            setPhoneError(true);
+        }}
         if (firstName === "") {
             inputFirstName.current.focus();
         }
@@ -118,14 +123,11 @@ const [emailError, setEmailError] = useState(true);
             }
         }
     }
-
-
     const errorMsg3 = () => {
         if (phone === "") {
             setphoneValidation(false);
         } else {
             setphoneValidation(true);
-
             if (!phoneNumber.test(phone)) {
                 setPhoneError(false);
             } else {
