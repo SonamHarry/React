@@ -11,17 +11,19 @@ function Modalsample({ onclick }) {
     const inputFirstName = useRef(null);
     const inputLastName = useRef(null);
     const inputEmail = useRef(null);
-    const inputPhone = useRef(null); 
+    const inputPhone = useRef(null);
     const [firstName, setfirstName] = useState('');
     const [firstNameValidation, setFirstNameValidation] = useState(true);
     const [lastname, setLastName] = useState('');
     const [lastNameValidation, setlastNameValidation] = useState(true);
     const [email, setEmail] = useState('');
     const [emailValidation, setEmailValidation] = useState(true);
+const [emailError, setEmailError] = useState(true);
     const [phone, setPhone] = useState('');
     const [phoneValidation, setphoneValidation] = useState(true);
-    const emailPattern =/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    const phoneNumber =(/^\d{1,10}$/);
+    const [phoneError, setPhoneError] = useState(true);
+    const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    const phoneNumber = (/^\d{1,10}$/);
 
     useEffect(() => {
         const interactiveElement = modalRef.current.querySelectorAll("button");
@@ -53,10 +55,15 @@ function Modalsample({ onclick }) {
         } else {
             setlastNameValidation(true);
         }
-        if ( email === "" || !emailPattern.test(email)) {
+        if (email === "") {
             setEmailValidation(false);
         } else {
             setEmailValidation(true);
+        }
+        if (!emailPattern.test(email)) {
+            setEmailError(false);
+        } else {
+            setEmailError(true);
         }
         if (phone === "" || !phoneNumber.test(phone)) {
             setphoneValidation(false);
@@ -100,15 +107,30 @@ function Modalsample({ onclick }) {
     const errorMsg2 = () => {
         if (email === "") {
             setEmailValidation(false);
-        } else {
+        }
+        else {
             setEmailValidation(true);
+            if (!emailPattern.test(email)) {
+                setEmailError(false);
+            }
+            else {
+                setEmailError(true);
+            }
         }
     }
+
+
     const errorMsg3 = () => {
         if (phone === "") {
             setphoneValidation(false);
         } else {
             setphoneValidation(true);
+
+            if (!phoneNumber.test(phone)) {
+                setPhoneError(false);
+            } else {
+                setPhoneError(true);
+            }
         }
     }
     return (
@@ -159,15 +181,17 @@ function Modalsample({ onclick }) {
                         <span hidden={lastNameValidation} style={{ color: '#b81106' }}>Please Enter Your Lastname</span><br />
                     </label>
                     <label id="email">Email Address:<br />
-                        <input type="email" value={email} ref={inputEmail} onChange={onSubmit2} onBlur={errorMsg2} aria-labelledby="email" placeholder="Enter your email address" autoComplete="email"  required /><br />
+                        <input type="email" value={email} ref={inputEmail} onChange={onSubmit2} onBlur={errorMsg2} aria-labelledby="email" placeholder="Enter your email address" autoComplete="email" required /><br />
                         <span hidden={emailValidation} style={{ color: '#b81106' }}>Please Enter Your Email Address</span><br />
+                        <span hidden={emailError} style={{ color: '#b81106' }}>Please Enter valid Email </span><br />
                     </label>
                     <label id="phone">Phone Number:<br />
                         <input type="tel" value={phone} ref={inputPhone} onChange={onSubmit3} onBlur={errorMsg3} aria-labelledby="phone" placeholder="Enter your phone number" autoComplete="tel" required /><br />
                         <span hidden={phoneValidation} style={{ color: '#b81106' }}>Please Enter Your phone number</span><br />
+                        <span hidden={phoneError} style={{ color: '#b81106' }}>Please Enter Valid phone</span><br />
                     </label>
                 </form>
-            
+
                 <button type="submit" onClick={handleSubmit}>Submit</button>
                 <Button buttonName="cancel" onclick={onclick} />
             </div>
