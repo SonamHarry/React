@@ -23,7 +23,7 @@ function Modalsample({ onclick }) {
     const [phoneValidation, setphoneValidation] = useState(true);
     const [phoneError, setPhoneError] = useState(true);
     const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    const phoneNumber = (/^\d{1,10}$/);
+    const phoneNumber = /^[123456789]\d{9,9}$/;
 
     useEffect(() => {
         const interactiveElement = modalRef.current.querySelectorAll("button");
