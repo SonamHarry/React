@@ -73,7 +73,7 @@ function Modalsample({ onclick }) {
         if ( !phoneNumber.test(phone)) {
             setPhoneError(false);
         } else {
-            setPhoneError(true);
+            setphoneValidation(true);
         }}
         if (firstName === "") {
             inputFirstName.current.focus();
@@ -112,29 +112,32 @@ function Modalsample({ onclick }) {
     const errorMsg2 = () => {
         if (email === "") {
             setEmailValidation(false);
+            setEmailError(true);
         }
         else {
-            setEmailValidation(true);
             if (!emailPattern.test(email)) {
                 setEmailError(false);
-            }
-            else {
-                setEmailError(true);
-            }
+            } else {
+                 setEmailError(true);
+               console.log(emailError);    
+            };
+            setEmailValidation(true);
         }
     }
-    const errorMsg3 = () => {
+    
+const errorMsg3 = () => {
         if (phone === "") {
             setphoneValidation(false);
         } else {
             setphoneValidation(true);
-            if (!phoneNumber.test(phone)) {
-                setPhoneError(false);
+         if (!phoneNumber.test(phone)) {
+            setPhoneError(false);
             } else {
+            setPhoneError(true);
+            if (phoneNumber.test(phone)) {
                 setPhoneError(true);
-            }
-        }
-    }
+                }}
+   }   }                                                                                                
     return (
         <>
             <div className="modal-wrapper" />
